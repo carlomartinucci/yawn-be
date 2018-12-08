@@ -9,6 +9,10 @@ class NewslettersController < ApplicationController
     newsletter = Newsletter.new(newsletter_params)
 
     if newsletter.save
+      Settings.deliver_to.each do |email|
+        ApplicationMailer.deliver_newsletter(newsletter, email).deliver_now
+      end
+
       render plain: 'ok', status: :created
     else
       render plain: 'error', status: :unprocessable_entity
