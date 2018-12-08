@@ -1,0 +1,9 @@
+<h1><%= @subject %></h1>
+
+<% @pages.each do |page| %>
+  <div style="margin-top: 10px;">
+    <h2><%= page.title %></h2>
+    <h3><%= link_to page.url, page.url %></h3>
+    <p><%= page.description %></p>
+  </div>
+<% end %>

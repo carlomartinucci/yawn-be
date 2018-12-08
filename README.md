@@ -1,24 +1,36 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setup
 
-Things you may want to cover:
+* `git clone`
 
-* Ruby version
+* `bundle`
 
-* System dependencies
+* `rails db:migrate`
 
-* Configuration
+* Generate gmail credentials: visit `https://myaccount.google.com/apppasswords`, add an app (select 'others') and get the password.
 
-* Database creation
+* Set your email in `Rails.application.credentials.gmail[:email]` and your password in `Rails.application.credentials.gmail[:password]` using `rails credentials:edit` (maybe you need `EDITOR="nano" rails credentials:edit`). Set it like this:
 
-* Database initialization
+```yml
+gmail:
+  email: YOUR_EMAIL
+  password: YOUR_PASSWORD
+  - '<Email address>'
+  - '<Other email address>'
+  - ...
+```
 
-* How to run the test suite
+* Create `config/settings.local.yml`. Set it like:
 
-* Services (job queues, cache servers, search engines, etc.)
+```yml
+deliver_to:
+  - '<Email address>'
+  - '<Other email address>'
+  - ...
+```
 
-* Deployment instructions
+## Deliver
+* `rails s`
 
-* ...
+Now when you click "deliver" from the yawn extension, your newsletter will be created and delivered! Well done ;)

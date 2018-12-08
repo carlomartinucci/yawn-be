@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
-  database: yawn-be_production
-  username: yawn-be
-  password: <%= ENV['YAWN-BE_DATABASE_PASSWORD'] %>
+  database: yawn-be_development
+  # database: yawn-be_production
+  # username: yawn-be
+  # password: <%= ENV['YAWN-BE_DATABASE_PASSWORD'] %>
