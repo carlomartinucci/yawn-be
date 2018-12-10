@@ -16,9 +16,6 @@
 gmail:
   email: YOUR_EMAIL
   password: YOUR_PASSWORD
-  - '<Email address>'
-  - '<Other email address>'
-  - ...
 ```
 
 * Create `config/settings.local.yml`. Set it like:
